@@ -1,0 +1,16 @@
+{
+  "login": {
+    "username": "admin",
+    "password": "Adm1nP@ssw0rd"
+  },
+  "departments": [
+    { "id": 1, "department": "Accounts", "headcount": 17 },
+    { "id": 2, "department": "Sales", "headcount": 37 },
+    { "id": 3, "department": "Back Office", "headcount": 9 }
+  ],
+  "employees": [
+    { "id": 1, "name": "First last name1", "age": 28, "department": "Accounts", "manager": "My Manager Name1" },
+    { "id": 2, "name": "First last name2", "age": 32, "department": "Accounts", "manager": "My Manager Name2" },
+    { "id": 3, "name": "First last name3", "age": 30, "department": "Accounts", "manager": "My Manager Name1" }
+  ]
+  }
