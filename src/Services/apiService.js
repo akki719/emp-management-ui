@@ -1,16 +1,18 @@
 
-import axios from 'axios';
+import mockData from '../mockData.json';
 
-const BASE_URL = 'http://localhost:3001';
-
-export const login = (username, password) => {
-  return axios.post(`${BASE_URL}/login`, { username, password });
+export const login = async (username, password) => {
+  if (username === mockData.login.username && password === mockData.login.password) {
+    return { status: 200, data: mockData.login };
+  } else {
+    return { response: { status: 401, data: { error: 'Invalid username or password' } } };
+  }
 };
 
-export const getDepartments = () => {
-  return axios.get(`${BASE_URL}/departments`);
+export const getDepartments = async () => {
+  return { status: 200, data: mockData.departments };
 };
 
-export const getEmployees = () => {
-  return axios.get(`${BASE_URL}/employees`);
+export const getEmployees = async () => {
+  return { status: 200, data: mockData.employees };
 };

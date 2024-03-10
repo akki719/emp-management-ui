@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './Components/Layout';
@@ -6,14 +7,19 @@ import Home from './Components/Home';
 import Employees from './Components/Employees';
 
 function App() {
-  const user = { name: 'Aki' };
+  const [user, setUser] = useState({ name: '' });
+
+  const updateUser = (userData) => {
+    setUser(userData);
+  };
+
   return (
     <div>
       <header>Welcome {user ? user.name : ''}</header>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout/>} />
-          <Route index path="/login" element={<Login/>} />
+          <Route index path="/login" element={<Login updateUser={updateUser}/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/employees" element={<Employees/>} />
         </Routes>
