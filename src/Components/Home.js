@@ -21,14 +21,14 @@ const Home = () => {
   return (
     <div className="container">
       {departments.map((dept, index) => (
-        <Link key={index} to="/employees" className="departmentLink">
+        <Link key={index} to={index === 0 && "/employees"} className="departmentLink">
           <div>
             <h2>{dept.department}</h2>
             <p>Headcount: {dept.headcount}</p>
           </div>
         </Link>
       ))}
-      <Link to="/employees" className="totalCountLink">
+      <Link className="totalCountLink">
         <div>
           <h2>All</h2>
           <p>Total count: {departments.reduce((acc, curr) => acc + curr.headcount, 0)}</p>
