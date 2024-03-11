@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getDepartments } from './../Services/apiService'; // Import the getDepartments API function
+import { getDepartments } from './../Services/apiService';
 
 const Home = () => {
   const [departments, setDepartments] = useState([]);
@@ -19,21 +19,21 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       {departments.map((dept, index) => (
-        <div key={index}>
-          <Link to="/employees">
+        <Link key={index} to="/employees" className="departmentLink">
+          <div>
             <h2>{dept.department}</h2>
             <p>Headcount: {dept.headcount}</p>
-          </Link>
-        </div>
+          </div>
+        </Link>
       ))}
-      <div>
-        <Link to="/employees">
+      <Link to="/employees" className="totalCountLink">
+        <div>
           <h2>All</h2>
           <p>Total count: {departments.reduce((acc, curr) => acc + curr.headcount, 0)}</p>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };

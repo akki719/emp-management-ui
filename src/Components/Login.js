@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './../Styles/Login.css'; 
+// import './../Styles/Login.css'; 
 import { login } from './../Services/apiService';
 
 const Login = ({ updateUser }) => {
@@ -12,7 +12,7 @@ const Login = ({ updateUser }) => {
   const handleLogin = async () => {
     try {
       const response = await login(username, password);
-      const { data } = response;
+      // const { data } = response;
       
       if (response.status === 200) {
         // Update username and redirect to Home if login successful
@@ -30,7 +30,7 @@ const Login = ({ updateUser }) => {
   };
 
   return (
-    <div className="login-container">
+    <div className="container">
       <h2>Login</h2>
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <input
